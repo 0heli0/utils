@@ -35,8 +35,8 @@ public class SM4Util {
             }
 
             SM4 sm4 = new SM4();
-            sm4.sm4_setkey_enc(ctx, keyBytes);
-            byte[] encrypted = sm4.sm4_crypt_ecb(ctx, plainText.getBytes("GBK"));
+            sm4.sm4SetkeyEnc(ctx, keyBytes);
+            byte[] encrypted = sm4.sm4CryptEcb(ctx, plainText.getBytes("GBK"));
             String cipherText = new BASE64Encoder().encode(encrypted);
             if (cipherText != null && cipherText.trim().length() > 0) {
                 Pattern p = Pattern.compile("\\s*|\t|\r|\n");
@@ -64,8 +64,8 @@ public class SM4Util {
             }
 
             SM4 sm4 = new SM4();
-            sm4.sm4_setkey_dec(ctx, keyBytes);
-            byte[] decrypted = sm4.sm4_crypt_ecb(ctx, new BASE64Decoder().decodeBuffer(cipherText));
+            sm4.sm4SetkeyDec(ctx, keyBytes);
+            byte[] decrypted = sm4.sm4CryptEcb(ctx, new BASE64Decoder().decodeBuffer(cipherText));
             return new String(decrypted, "GBK");
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,8 +90,8 @@ public class SM4Util {
             }
 
             SM4 sm4 = new SM4();
-            sm4.sm4_setkey_enc(ctx, keyBytes);
-            byte[] encrypted = sm4.sm4_crypt_cbc(ctx, ivBytes, plainText.getBytes("GBK"));
+            sm4.sm4SetkeyEnc(ctx, keyBytes);
+            byte[] encrypted = sm4.sm4CryptCbc(ctx, ivBytes, plainText.getBytes("GBK"));
             String cipherText = new BASE64Encoder().encode(encrypted);
             if (cipherText != null && cipherText.trim().length() > 0) {
                 Pattern p = Pattern.compile("\\s*|\t|\r|\n");
@@ -122,8 +122,8 @@ public class SM4Util {
             }
 
             SM4 sm4 = new SM4();
-            sm4.sm4_setkey_dec(ctx, keyBytes);
-            byte[] decrypted = sm4.sm4_crypt_cbc(ctx, ivBytes, new BASE64Decoder().decodeBuffer(cipherText));
+            sm4.sm4SetkeyDec(ctx, keyBytes);
+            byte[] decrypted = sm4.sm4CryptCbc(ctx, ivBytes, new BASE64Decoder().decodeBuffer(cipherText));
             return new String(decrypted, "GBK");
         } catch (Exception e) {
             e.printStackTrace();

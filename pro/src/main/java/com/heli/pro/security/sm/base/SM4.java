@@ -433,7 +433,7 @@ public class SM4 {
     return ret;
   }
 
-  public void sm4_setkey_enc(SM4Context ctx, byte[] key) throws Exception {
+  public void sm4SetkeyEnc(SM4Context ctx, byte[] key) throws Exception {
     if (ctx == null) {
       throw new Exception("ctx is null!");
     }
@@ -446,7 +446,7 @@ public class SM4 {
     sm4_setkey(ctx.sk, key);
   }
 
-  public void sm4_setkey_dec(SM4Context ctx, byte[] key) throws Exception {
+  public void sm4SetkeyDec(SM4Context ctx, byte[] key) throws Exception {
     if (ctx == null) {
       throw new Exception("ctx is null!");
     }
@@ -463,7 +463,7 @@ public class SM4 {
     }
   }
 
-  public byte[] sm4_crypt_ecb(SM4Context ctx, byte[] input) throws Exception {
+  public byte[] sm4CryptEcb(SM4Context ctx, byte[] input) throws Exception {
     if (input == null) {
       throw new Exception("input is null!");
     }
@@ -492,7 +492,7 @@ public class SM4 {
     return output;
   }
 
-  public byte[] sm4_crypt_cbc(SM4Context ctx, byte[] iv, byte[] input) throws Exception {
+  public byte[] sm4CryptCbc(SM4Context ctx, byte[] iv, byte[] input) throws Exception {
     if (iv == null || iv.length != 16) {
       throw new Exception("iv error!");
     }
